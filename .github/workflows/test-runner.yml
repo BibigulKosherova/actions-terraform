@@ -1,0 +1,19 @@
+name: Test ARC Runner
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: arc-runner-set 
+    steps:
+      - name: Hello from runner
+        run: echo "Hello! I am running inside Kubernetes cluster!"
+      
+      - name: Check hostname
+        run: hostname
+      
+      - name: Check kubectl
+        run: kubectl version --client
